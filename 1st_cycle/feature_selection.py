@@ -1,3 +1,4 @@
+## Data 정보와 root는 모두 $$$ 마스킹
 import pandas as pd
 pd.set_option("display.max_columns", None)
 import numpy as np
@@ -36,44 +37,9 @@ def create_feature_columns(file):
     
     df = pd.read_csv(file)
     print("RCMS_BSNS_ID" in df.columns)
-    non_use_col = ["TTL_DVLM_PRID_END_DE",
-                "USE_DE",
-                "TRSC_DE",
-                "STP_DE",
-                "DVLM_STR_DE",
-                "DVLM_END_DE",
-                "USE_REG_DT",
-                "TRSC_PFMC_REG_DT",
-                "RCMS_BSNS_ID",
-                "RCMS_SBJT_ID",
-                "AGRT_ID",
-                "ITEPD_GRP_ID",
-                "AGORG_BZEXC_ID",
-                "AGRT_ORGN_ID",
-                "RECHCT_USE_ITEPD_ID",
-                "RECHCT_USE_TRSC_PFMC_ID",
-                "EVDC_PPS_ATCH_DOC_ID_1",
-                "RECHCT_EXCT_ID_1",
-                "BSNSR_REG_NO",
-                "CPRT_REG_NO_X",
-                "SPLR_BSNSR_REG_NO",
-                "KED_CD",
-                "BSTP_CD",
-                "BSNS_CL_CD"
-                , "MODE(data.ITEPD_GRP_ID)"
-                , "MODE(data.RECHCT_EXCT_ID_1)"
-                , "MODE(data.RCMS_SBJT_ID)"
-                , "MODE(data.AGORG_BZEXC_ID)"
-                , "MODE(data.RECHCT_USE_TRSC_PFMC_ID)"
-                , "MODE(data.AGRT_ID)"
-                , "MODE(data.EVDC_PPS_ATCH_DOC_ID_1)"
-                , "MODE(data.STP_DE)"
-                , "MODE(data.RCMS_BSNS_ID)"
-                , "MODE(data.AGRT_ORGN_ID)"
-                , "MIN(data.CPRT_REG_NO_X)"
-                , "MODE(data.AGRT_ORGN_ID)"
-                , "MODE(data.BSNSR_REG_NO)"
-                , "TTL_DVLM_PRID_STR_DE"]
+    non_use_col = ["$$$",
+                "$$$",
+                "$$$"]
     
     df.drop(non_use_col, axis = 1, inplace = True)
     print(df.shape)

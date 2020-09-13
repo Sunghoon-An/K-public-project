@@ -1,7 +1,9 @@
 import os
 import time
 
-BASE_PATH = "/home/gruds/projects/keit"
+"""보완상의 문제로 data, root는 모두 $$$로 Masking"""
+
+BASE_PATH = "/$$$"
 CODE_PATH = os.path.join(BASE_PATH,"process")
 DATA_PATH = os.path.join(BASE_PATH, 'data')
 PREPROCESS_PATH = os.path.join(CODE_PATH,"preprocess")

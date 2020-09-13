@@ -63,12 +63,12 @@ def drop_noise_row(df, logger):
     start = time.time()
     logger.info("[Before Drop Noise rows shape] : {}".format(df.shape[0]))
     
-    data_drop_index = df[(df['DSAPVL_HDLG_STT_CD'] != "B15010") 
-                         & (df['DSAPVL_HDLG_STT_CD'] != "B15001")
-                         & (df['DSAPVL_HDLG_STT_CD'] != "B15002")].index
+    data_drop_index = df[(df['$$$'] != "$$$") 
+                         & (df['$$$'] != "$$$")
+                         & (df['$$$'] != "$$$")].index
     df.drop(data_drop_index, axis = 0, inplace=True)
-    data_drop_index = df[(df["DSAPVL_HDLG_STT_CD"] == "B15010") 
-                           & (df["DSAPVL_RSN_SE_CD"].notnull())].index
+    data_drop_index = df[(df["$$$"] == "$$$") 
+                           & (df["$$$"].notnull())].index
     df.drop(data_drop_index, axis = 0, inplace=True)
     
     logger.info("[After Drop Noise rows shape] : {}".format(df.shape[0]))
@@ -83,26 +83,14 @@ def target_labeling(df, logger):
     logger.info("===== Multi-Labeling Start =====")
     start = time.time()
     
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19001","target"]=1
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19004","target"]=2
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19005","target"]=3
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19007","target"]=4
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19011","target"]=5
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19010","target"]=6
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19999","target"]=7
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19009","target"]=8
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19002","target"]=9
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19008","target"]=10
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19014","target"]=11
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19003","target"]=12
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19012","target"]=13
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19013","target"]=14
-    df.loc[df.DSAPVL_RSN_SE_CD=="B19006","target"]=15
-    
+    df.loc[df.$$$=="$$$","target"]=1
+    df.loc[df.$$$=="$$$","target"]=2
+    df.loc[df.$$$=="$$$","target"]=3
+
     df.target.fillna(0, inplace = True)
     df.target = df.target.astype("int")
     
-    df = df.drop(["DSAPVL_RSN_SE_CD","DSAPVL_HDLG_STT_CD"],axis = 1)
+    df = df.drop(["$$$","$$$"],axis = 1)
     
     h, m, s = count_time(start)
     logger.info("Total time for Multi-Labeling : [{}:{}:{}]".format(h, m, s))
@@ -158,8 +146,8 @@ def unique_data_preprocessing(df, logger):
             return 1
         else:
             return 0
-    df["SPLR_BSNSR_REG_NO"] = df["SPLR_BSNSR_REG_NO"].astype(str).str[3:5]
-    df["SPLR_BSNSR_REG_NO"] = df["SPLR_BSNSR_REG_NO"].apply(make_code)
+    df["$$$"] = df["$$$"].astype(str).str[3:5]
+    df["$$$"] = df["$$$"].apply(make_code)
     
     h, m, s = count_time(start)
     logger.info("Total time for Unique data : [{}:{}:{}]".format(h, m, s))

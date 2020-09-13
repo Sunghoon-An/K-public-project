@@ -1,3 +1,4 @@
+## Data와 Root는 보완상 모두 $$$로 마스킹
 import pandas as pd, pickle
 import time
 import numpy as np
@@ -36,11 +37,11 @@ def data_load(DATA_DIR):
     df[CODE_COLS] = df[CODE_COLS].astype(np.object)
     df[AMT_TYPE] = df[AMT_TYPE].astype(np.float)
     
-    unique_usr = df.RCMS_SBJT_ID.unique().compute(scheduler = 'multiprocessing', num_worker = 4)
+    unique_usr = df.$$$.unique().compute(scheduler = 'multiprocessing', num_worker = 4)
     usr_list = custom_split(unique_usr, 48)
     
     for i, usrs in enumerate(usr_list):
-        data = df[df.AGRT_ORGN_ID.isin(usrs)].reset_index(drop = True)
+        data = df[df.$$$.isin(usrs)].reset_index(drop = True)
         print('========== Reset index Done ==========')
         data = data.compute(scheduler = 'multiprocessing', num_worker = 4)
         print('========== Transform Pandas Done ==========')

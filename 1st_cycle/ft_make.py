@@ -11,7 +11,7 @@ import featuretools as ft
 import featuretools.variable_types as vtypes
 
 warnings.filterwarnings("ignore")
-csv_file = os.path.join(DATA_PATH, 'preprocessed_ft.csv')
+csv_file = os.path.join(DATA_PATH, '$$$.csv')
 
 with open(os.path.join(DATA_PATH, 'use_col.txt'), 'rb')as f:
     use_col = pickle.load(f)
@@ -25,153 +25,74 @@ logger.info("DATA_PATH : {}".format(DATA_PATH))
 
 df = df.reset_index(drop = True)
 
-orgn_bool = ["CHAC_TRSF_ALLW_YN",
-"NOPRFT_ORGN_YN",
-"ETC_EVDC_PSBLT_YN",
-"MCOST_YN",
-"MDTR_EVDC_ECTN_ALLW_YN",
-"FRGN_ORGN_YN",
-"LCOST_ACCT_USE_YN",
-"CLSBS_YN",
-"ENPR_CRDT_BAD_YN",
-"AGRT_ORGN_ENPR_SCL_CD",
-"AGRT_ORGN_ROLE_SE_CD",
-"AGRT_SE_CD",
-"SBJT_STEP_CD_1",
-"BSNS_CL_CD",
-"HIRK_BSNS_CL_CD",
-"CARD_STMT_WAY_SE_CD",
-"ENPR_SCL_CD",
-"ORGN_CL_CD",
-"ORGN_STT_SE_CD",
-"TAXT_TP_SE_CD",
-"BSNS_SPCH_SE_CD",
-"SBJT_SE_CD",
-"BSTP_CD",
-"KED_CD"]
+orgn_bool = ["$$$",
+"$$$",
+"$$$",
+"$$$"]
 o_bool = []
 for c in orgn_bool:
     k = [col for col in df.columns if c in col]
     o_bool+=k
 
-orgn_ord = ["ANNL",
-"ATDT_CNT",
-"DFN_IT",
-"EXAA_IT"]
+orgn_ord = ["$$$",
+"$$$",
+"$$$",
+"$$$"]
 o_ord = []
 for c in orgn_ord:
     k = [col for col in df.columns if c in col]
     o_ord+=k
 
-orgn_cont = ["AGRT_BNDS_AMT",
-"GOV_CTRB_AMT_1",
-"LCGVN_ALOT_CASH_AMT_1",
-"LCGVN_ALOT_SPOT_AMT_1",
-"ORGN_TTL_BSNS_AMT",
-"PRVT_ALOT_CASH_AMT_1",
-"PRVT_ALOT_SPOT_AMT_1",
-"UPAY_GOV_CTRB_AMT_1",
-"DEBT_PT",
-"EQCP_PT",
-"INT_RWRD_MLTP_PT",
-"OPRFT_RT"
-"BSNS_NM",
-"BSTP_NM_X",
-"BUCDT_NM",
-"ORGN_NM",
-"SBJT_NM",
-"BSTP_NM_Y",
-"ENPR_FORM_NM",
-"ENPR_SCL_NM",
-"RPRSR_NM",
-"STP_FORM_CD_VL"]
+orgn_cont = ["$$$",
+"$$$",
+"$$$",
+"$$$",
+"$$$"]
 o_cont = []
 for c in orgn_cont:
     k = [col for col in df.columns if c in col]
     o_cont += k
 
-etc_bool = ["RCMS_시스템_연계기관_여부",
-"기관통합관리책임자_보유_여부",
-"정밀점검대상여부",
-"ASLCOST_ITEM_YN"]
+etc_bool = ["$$$",
+"$$$",
+"$$$",
+"$$$"]
 e_bool = []
 for c in etc_bool:
     k = [col for col in df.columns if c in col]
     e_bool += k
 
-etc_ord = ["이체권한_보유자_숫자",
-"인건비내역수"]
+etc_ord = ["$$$",
+"$$$"]
 e_ord = []
 for c in etc_ord:
     k = [col for col in df.columns if c in col]
     e_ord += k
 
-etc_cont = ["기타증빙예외",
-"자계좌이체구분",
-"증빙파일명",
-"청구확인여부"]
+etc_cont = ["$$$",
+"$$$",
+"$$$",
+"$$$"]
 e_cont = []
 for c in etc_cont:
     k = [col for col in df.columns if c in col]
     e_cont += k
 
-target_bool = ["EXCR_ORGN_APRB_YN",
-"CNCL_RCV_YN",
-"ORGN_CNLK_DTRS_YN",
-"ORGN_CNLK_DTRS_YN_1",
-"SBJT_AGRT_ORGN_TRSC_YN",
-"EXCT_KIND_SE_CD",
-"EXCT_STEP_SE_CD",
-"RNM_IDEN_SE_CD",
-"FRGN_USE_SE_CD",
-"MRC_STMT_MTHD_SE_CD",
-"CASH_SPOT_SE_CD",
-"DPTC_ITEPD_CD",
-"ETC_EVDC_ECTN_CD",
-"PTC_ITEPD_CD",
-"USE_AMT_SE_CD",
-"SPLR_BSNS_REG_STT_CD",
-"SPLR_TAXT_TP_SE_CD",
-"TRSC_EVDC_SE_CD",
-"VAT_HDLG_SE_CD"]
+target_bool = ["$$$",
+"$$$",
+"$$$",
+"$$$",
+"$$$"]
 t_bool = []
 for c in target_bool:
     k = [col for col in df.columns if c in col]
     t_bool += k
 
-target_cont = ["SECH_AMT",
-"SPLY_AMT_1",
-"SUM_AMT_1",
-"TXMT",
-"FAT_AMT",
-"FCO_AMT",
-"FEC_AMT",
-"FPU_SUM_AMT",
-"FSA_AMT",
-"FSU_AMT",
-"BILL_AMT",
-"CASH_AMT",
-"CHQE_AMT",
-"CRPH_AMPT_AMT",
-"SPLY_AMT",
-"SUM_AMT",
-"VAT_AMT",
-"RSTO_CONF_CROV_SPLY_AMT",
-"RSTO_CONF_CROV_VAT_AMT",
-"RSTO_CONF_SPLY_AMT",
-"RSTO_CONF_VAT_AMT",
-"USE_CROV_SPLY_AMT",
-"USE_CROV_VAT_AMT",
-"USE_SPLY_AMT",
-"USE_VAT_AMT",
-"VAT_HDLG_RSTO_AMT",
-"USE_SPLY_AMT_1",
-"USE_VAT_AMT_1",
-"PAY_USAG_NM",
-"ART_NM",
-"SPLR_BCMP_NM",
-"SPLR_BSTP_NM",
-"SPLR_BUCDT_NM"]
+target_cont = ["$$$",
+"$$$",
+"$$$",
+"$$$",
+"$$$"]
 t_cont = []
 for c in target_cont:
     k = [col for col in df.columns if c in col]

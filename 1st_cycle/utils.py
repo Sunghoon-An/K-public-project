@@ -206,20 +206,7 @@ def focal_loss(gamma = 2., alpha = 4.):
 def sampling(df):
         f = df[(df['target'] == 1.0) 
                | (df['target'] == 2.0)
-               | (df['target'] == 3.0)
-               | (df['target'] == 4.0)
-               | (df['target'] == 5.0)
-               | (df['target'] == 6.0)
-               | (df['target'] == 7.0)
-               | (df['target'] == 8.0)
-               | (df['target'] == 9.0)
-               | (df['target'] == 10.0)
-               | (df['target'] == 11.0)
-               | (df['target'] == 12.0)
-               | (df['target'] == 13.0)
-               | (df['target'] == 14.0)
-               | (df['target'] == 15.0)
-              ]
+               | (df['target'] == 3.0)]
         n = df[df['target'] == 0.0].sample(frac = 0.3)
         df = pd.concat([f, n], axis = 0)
         del f, n

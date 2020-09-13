@@ -4,6 +4,3 @@
 
 ## Data
 Pannel Data와 Natural Language가 포함되어 있음.
-
-## Prerequisites
-- ** 보완상 공개가 어려움.

@@ -29,26 +29,13 @@ def transform(file):
     ##########################################
     # feature Selection
     ##########################################
-#     with open(os.path.join(RESULT_PATH, 'use_col.txt'), 'rb')as f:
-#         use_col = pickle.load(f)
-#     column_order = list(use_col)
+
     
     df = pd.read_csv(save_file, index_col = 0)
     tqdm.pandas()
     print(df.shape)
     drop_col = ['target',
-               "MODE(data.ITEPD_GRP_ID)"
-                , "MODE(data.RECHCT_EXCT_ID_1)"
-                , "MODE(data.RCMS_SBJT_ID)"
-                , "MODE(data.AGORG_BZEXC_ID)"
-                , "MODE(data.RECHCT_USE_TRSC_PFMC_ID)"
-                , "MODE(data.AGRT_ID)"
-                , "MODE(data.EVDC_PPS_ATCH_DOC_ID_1)"
-                , "MODE(data.STP_DE)"
-                , "MODE(data.RCMS_BSNS_ID)"
-                , "MODE(data.AGRT_ORGN_ID)"
-                , "MIN(data.CPRT_REG_NO_X)"
-                , "MODE(data.AGRT_ORGN_ID)"]
+               "$$$"]
 
     x = df.drop(drop_col, axis = 1)
     

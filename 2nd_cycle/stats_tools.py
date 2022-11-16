@@ -308,4 +308,6 @@ https://datascienceschool.net/view-notebook/58269d7f52bd49879965cdc4721da42d/
 https://www.statsmodels.org/dev/examples/notebooks/generated/gls.html
 http://blog.naver.com/PostView.nhn?blogId=jieun0441&logNo=221133814810&parentCategoryNo=&categoryNo=30&viewDate=&isShowPopularPosts=false&from=postView
 http://blog.naver.com/PostView.nhn?blogId=yonxman&logNo=220950614789&categoryNo=1&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=search
+MLE
+https://yamalab.tistory.com/94
 """
